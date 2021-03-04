@@ -47,7 +47,7 @@ public class DeleteHome implements CommandExecutor {
 
                 //Delete the players default home
                 pl.deleteUnknownHome(uuid);
-                ChatUtils.sendSuccess(p, "Default Home has been removed!");
+                ChatUtils.sendSuccess(p, "Good job not being a scrub");
                 return true;
             } else if (args.length > 1) {
                 //Tell the player if they've sent to many arguments with the command

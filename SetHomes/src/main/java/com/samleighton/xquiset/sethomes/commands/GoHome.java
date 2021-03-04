@@ -18,6 +18,7 @@ import java.util.Map;
 
 public class GoHome implements CommandExecutor, Listener {
 
+    public static final String tpMessage = "kekw imagine actually using homes";
     private final SetHomes pl;
     private int taskId;
     private final int cooldown;
@@ -123,7 +124,7 @@ public class GoHome implements CommandExecutor, Listener {
         if (args.length < 1) {
             //If they have no home tell them
             if (!(pl.hasUnknownHomes(uuid))) {
-                ChatUtils.sendError(p, "You have no Default Home!");
+                ChatUtils.sendError(p, "Dumbass, you ain't got no home");
                 return false;
             } else {
                 //Teleport the player to their home and send them a message telling them so
@@ -162,7 +163,7 @@ public class GoHome implements CommandExecutor, Listener {
                     //Player note on teleport
                     p.playNote(p.getLocation(), Instrument.BELL, Note.sharp(2, Note.Tone.F));
                     //Notify player of successful teleport
-                    ChatUtils.sendSuccess(p, "You have been teleported home!");
+                    ChatUtils.sendSuccess(p, tpMessage);
                     //Add player to cooldown list
                     cooldownList.put(uuid, System.currentTimeMillis());
                 }
@@ -175,7 +176,7 @@ public class GoHome implements CommandExecutor, Listener {
         } else {
             //Check if they have any named homes or a home with the given name
             if (!(pl.hasNamedHomes(uuid)) || !(pl.getPlayersNamedHomes(uuid).containsKey(args[0]))) {
-                ChatUtils.sendError(p, "You have no homes by that name!");
+                ChatUtils.sendError(p, "wrong name poo poo head");
                 return false;
             }
             final String homeName = args[0];
@@ -214,7 +215,7 @@ public class GoHome implements CommandExecutor, Listener {
                 //Play note on teleport
                 p.playNote(p.getLocation(), Instrument.BELL, Note.sharp(2, Note.Tone.F));
                 //Tell the player they've teleported
-                ChatUtils.sendSuccess(p, "You have been teleported home!");
+                ChatUtils.sendSuccess(p, tpMessage);
                 //Add player to cooldown list
                 cooldownList.put(uuid, System.currentTimeMillis());
             }
@@ -273,7 +274,7 @@ public class GoHome implements CommandExecutor, Listener {
                     //Play note on teleport
                     p.playNote(p.getLocation(), Instrument.BELL, Note.sharp(2, Note.Tone.F));
                     //Notify player of successful teleport
-                    ChatUtils.sendSuccess(p, "You have been teleported!");
+                    ChatUtils.sendSuccess(p, tpMessage);
                     //Add player to cooldown list
                     cooldownList.put(p.getUniqueId().toString(), System.currentTimeMillis());
                 }
@@ -321,7 +322,7 @@ public class GoHome implements CommandExecutor, Listener {
                 //Play note on teleport
                 p.playNote(p.getLocation(), Instrument.BELL, Note.sharp(2, Note.Tone.F));
                 //Notify player of successful teleport
-                ChatUtils.sendSuccess(p, "You have been teleported!");
+                ChatUtils.sendSuccess(p, tpMessage);
                 //Add player to cooldown list
                 cooldownList.put(p.getUniqueId().toString(), System.currentTimeMillis());
             }
